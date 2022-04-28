@@ -61,11 +61,11 @@ def szpd_get_process(session: requests.Session, id_num, code):
     return r.json()
 
 
-if __name__ == '__main__':
+def check():
     id_num = get_id_num()
     if len(id_num) < 13:
         print("[-] 13位业务号或者18位身份证号！")
-        exit(1)
+        return None, None, None
     max_count = 5
     img_path = "code.jpeg"
     session = requests.session()
@@ -84,4 +84,10 @@ if __name__ == '__main__':
             poc_jd = r["data"][0]["simpbzjd"]
             poc_full_jd = r["data"][0]["fullbzjd"]
             print(f"[+] 查询成功!!!, ID: {id_num}, 项目类型：{poc_type}, 状态: {poc_jd}【{poc_full_jd}】")
-            break
+            return poc_type, poc_jd, poc_full_jd
+
+    return None, None, None
+
+
+if __name__ == '__main__':
+    check()

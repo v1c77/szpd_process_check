@@ -15,3 +15,10 @@ Output：🌰
 [+] code ocr result:  nUT6
 [+] 查询成功!!!, ID: xxxxxx, 项目类型：往来港澳通行证, 状态: 审批【正在审批中】
 ```
+
+OR
+
+Optimized for mac, get alert through the speaker.
+```shell
+./notify.py  <[13位业务编号] | [18位身份证]>
+```
